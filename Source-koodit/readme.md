@@ -3,6 +3,8 @@
 Blinky/ - variaatioita ledivilkusta
 
 Serial/ - variaatioita UART-ohjelmista
+- serial1...6: pelkkää lähetystä
+- serial11..14: lähetystä ja vastaanottoa
 
 Memtest - simppeli muistitesti
 
