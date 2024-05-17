@@ -1,6 +1,4 @@
-                CPU     8051
-
-                INCLUDE ../p80c51fa.inc
+                INCLUDE p80c51fa.inc
 
 
 T2_RELOAD       EQU     0FFF3H          ; 38,4kbit/s @ 16 MHz
