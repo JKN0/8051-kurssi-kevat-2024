@@ -8,6 +8,11 @@ Serial/ - variaatioita UART-ohjelmista
 
 Display/ - näyttölevyn esimerkkiohjelmia
 
+PCA/ - PCA-esimerkkejä
+- period: jaksonpituuden mittaus
+- player1: äänisamplen toistaminen PWM:ää käyttäen
+- player2: sama, mutta ei käytä ROM-pankinvaihtoa
+
 Memtest - simppeli muistitesti
 
 Make.bat - "makefile" Windowsille

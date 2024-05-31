@@ -1,0 +1,50 @@
+Player1/player2-äänidemon ohjeita
+
+Player1- ja player2-ohjelmat olettavat, että toistettava äänisample on ROM2:ssa (8000H...FFFFH).
+Samplen formaatti on: 8-bit samplet, 8 kHz sampletaajuus.
+
+Player1 toistaa 45 kB pitkää samplea, joka jakaantuu ROM-pankkeihin 0 ja 1, 
+ohjelma vaihtaa pankkia tarpeen mukaan.
+
+Player2 toistaa 22 kB pitkää samplea, joka mahtuu kokonaan ROM-pankkiin 0, 
+ohjelma ei tee pankin vaihtoja. 
+
+Kaiuttimen ajamiseen tarvitaan kuvassa speaker_driver.pdf oleva yksinkertainen FET-driver.
+Kaikki komponentit löytyy labin varastoista. Piste PWM kytketään 8051-kortin P1.3:een, 
+jännitteet voi ottaa kortin piikkirimoilta myös.
+
+Hakemistossa Wavesample on valmiit heksatiedostot pankeista 0 ja 1. Nämä pitää ohjelmoida 
+erikseen ROM2:een ja säätää levyn jumpperointeja siinä välissä.
+
+Bank0-tiedosto kelpaa myös player2:lle, se toistaa siitä vain alkupäätä.
+
+ROM2:n ohjelmointi:
+- 8051-levyä pitää syöttää 12 V jännitteellä, jotta ohjelmointi/erasointi onnistuu
+- aseta tyhjä ROM kantaan ROM2 (tai tyhjennä Paulmonin Z-käskyllä)
+- poista jumpperi A15 (J1) ==> A15=0
+- downloadaa TakeOnMe_bank0.hex Paulmoniin -> ohjelmoituu ROM2:n pankkiin 0
+- aseta jumpperi A15 siten, että oikosulkupala on ledirivin puolella ==> A15=1
+- downloadaa TakeOnMe_bank1.hex Paulmoniin -> ohjelmoituu ROM2:n pankkiin 1
+
+Jumpperin A15 asetus pitää olla oikein myös ohjelmaa ajettaessa:
+- Jos ajat player1-ohjelmaa ==> oikosulkupala CPU-piirin puolelle ==> A15=P3.4
+- Jos ajat player2-ohjelmaa ==> oikosulkupala pois ==> A15=0
+
+Huomaa, että jumpperien A15 ja A16 alasvetovastuksia R2 ja R3 jouduttiin muuttamaan alkuperäisestä.
+Niiden pitää olla vähintään 33 k. Kannattaa tarkistaa omalta kortilta, jos se on rakennettu 
+ennen kuin tämä ongelma havaittiin. Jos vastukset eivät ole oikeat, edellä kuvattu ohjelmointi 
+kyllä onnistuu, mutta player1 ei toimi oikein, koska ohjelma ei pysty vaihtamaan pankkia.
+
+-----------
+
+Koska tämä pankkien kanssa kikkailu on noinkin monimutkaista, ja lisäksi tuo vastuskoko-ongelma, 
+voi olla helpompaa aloittaa ajamalla pelkästään player2:ta. Tällöin asiat yksinkertaistuvat:
+
+ROM2:n ohjelmointi:
+- 8051-levyä pitää syöttää 12 V jännitteellä, jotta ohjelmointi/erasointi onnistuu
+- aseta tyhjä ROM kantaan ROM2 (tai tyhjennä Paulmonin Z-käskyllä)
+- poista jumpperi A15 (J1) ==> A15=0
+- downloadaa TakeOnMe_bank0.hex Paulmoniin -> ohjelmoituu ROM2:n pankkiin 0
+
+Tämän jälkeen player2 toimii vastusten koosta riippumatta.
+
