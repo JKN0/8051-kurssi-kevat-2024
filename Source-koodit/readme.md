@@ -13,6 +13,9 @@ PCA/ - PCA-esimerkkejä
 - player1: äänisamplen toistaminen PWM:ää käyttäen
 - player2: sama, mutta ei käytä ROM-pankinvaihtoa
 
+51FA_base_asm/ 
+- ohjelmarunko, jossa ajastimet ja sarjaliikenne
+
 Memtest - simppeli muistitesti
 
 Make.bat - "makefile" Windowsille
