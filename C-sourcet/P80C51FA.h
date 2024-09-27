@@ -194,6 +194,7 @@ __sbit __at (0xD8)    CCF0;
 __sfr16 __at (0x8C8A) TMR0;
 __sfr16 __at (0x8D8B) TMR1;
 __sfr16 __at (0xCDCC) TMR2;
+__sfr16 __at (0xCBCA) RCAP2;
 
 /* Interrupt numbers: address = (number * 8) + 3 */
 #define IE0_VECTOR      0       /* 0x03 external interrupt 0 */
