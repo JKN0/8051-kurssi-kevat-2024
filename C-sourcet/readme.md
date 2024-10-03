@@ -6,6 +6,8 @@ Helloworld/ - perus-helloworld
 
 51FA_base/ - ohjelmarunko C:llä, vastaava kuin assembly-puolella
 
+Clock_demo/ - sekuntikello/tekstiskrolleri LCD-näytölle, ohjelmarunkoa käyttäen
+
 P80C51FA.h - header-tiedosto 80C51FA:lle
 
 Make.bat - "makefile" Windowsille
