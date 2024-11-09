@@ -8,6 +8,8 @@ Helloworld/ - perus-helloworld
 
 Clock_demo/ - sekuntikello/tekstiskrolleri LCD-näytölle, ohjelmarunkoa käyttäen
 
+IRrec/ - IR-kaukosäädinkoodien vastaanotto, NEC protokolla
+
 P80C51FA.h - header-tiedosto 80C51FA:lle
 
 Make.bat - "makefile" Windowsille
